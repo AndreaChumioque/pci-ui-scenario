@@ -28,13 +28,6 @@ const columnDefs: ColDef[] = [
         if (dateAsString === null) {
           return -1;
         }
-        const formattedDate = dateAsString.slice(0,10);
-        var splitDate = formattedDate.split('-');
-        // var cellDate = new Date(
-        //   Number(splitDate[2]),
-        //   Number(splitDate[1]) - 1,
-        //   Number(splitDate[0])
-        // );
         const cellDate = new Date(dateAsString);
         if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
           return 0;
