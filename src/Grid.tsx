@@ -13,7 +13,7 @@ const dateFormatter = (params:any):string => {
 
 const yesNoFormatter = (params:any): string => {
   const { value } = params;
-  let displayValue = value;
+  let displayValue = '';
   if (value === 'Y'){
     displayValue = 'Yes';
   } else if (value === 'N') {
