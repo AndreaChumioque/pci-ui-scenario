@@ -9,6 +9,17 @@ const dateFormatter = (params:any):string => {
   const dateObject = new Date(dateAsString);
   const options = { year: 'numeric', month: 'short', day: 'numeric' } as const;
   return dateObject.toLocaleDateString('en-US', options);
+};
+
+const yesNoFormatter = (params:any): string => {
+  const { value } = params;
+  let displayValue = value;
+  if (value === 'Y'){
+    displayValue = 'Yes';
+  } else if (value === 'N') {
+    displayValue = 'No';
+  }
+  return displayValue;
 }
 
 const defaultColDef: ColDef<{}> = {
@@ -114,6 +125,7 @@ const columnDefs: ColDef[] = [
       buttons: ['reset', 'apply'],
       closeOnApply: true,
     },
+    valueFormatter: yesNoFormatter
   },
   {
     field: "orbit_class",
