@@ -21,8 +21,32 @@ const columnDefs: ColDef[] = [
   {
     field: "discovery_date",
     headerName: "Discovery Date",
-    filter: 'agTextColumnFilter',
+    filter: 'agDateColumnFilter',
     filterParams: {
+      comparator: (filterLocalDateAtMidnight:any, cellValue:any) => {
+        const dateAsString = cellValue;
+        if (dateAsString === null) {
+          return -1;
+        }
+        const formattedDate = dateAsString.slice(0,10);
+        var splitDate = formattedDate.split('-');
+        // var cellDate = new Date(
+        //   Number(splitDate[2]),
+        //   Number(splitDate[1]) - 1,
+        //   Number(splitDate[0])
+        // );
+        const cellDate = new Date(dateAsString);
+        if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+          return 0;
+        }
+        if (cellDate < filterLocalDateAtMidnight) {
+          return -1;
+        }
+        if (cellDate > filterLocalDateAtMidnight) {
+          return 1;
+        }
+        return 0;
+      },
       buttons: ['reset', 'apply'],
       closeOnApply: true,
     },
