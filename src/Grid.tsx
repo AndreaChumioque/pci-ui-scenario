@@ -4,6 +4,13 @@ import data from "./near-earth-asteroids.json";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
+const dateFormatter = (params:any):string => {
+  const dateAsString = params.value;
+  const dateObject = new Date(dateAsString);
+  const options = { year: 'numeric', month: 'short', day: 'numeric' } as const;
+  return dateObject.toLocaleDateString('en-US', options);
+}
+
 const defaultColDef: ColDef<{}> = {
   sortable: true,
 };
@@ -43,6 +50,7 @@ const columnDefs: ColDef[] = [
       buttons: ['reset', 'apply'],
       closeOnApply: true,
     },
+    valueFormatter: dateFormatter,
   },
   {
     field: "h_mag",
