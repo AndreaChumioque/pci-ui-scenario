@@ -1,10 +1,10 @@
 import { useRef, useCallback } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
-import data from "./near-earth-asteroids.json";
+import data from "../data/near-earth-asteroids.json";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import "./styles.css"
+import "../assets/styles.css"
 
 const dateFormatter = (params:any):string => {
   const dateAsString = params.value;
