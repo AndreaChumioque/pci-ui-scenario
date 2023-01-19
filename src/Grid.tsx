@@ -147,7 +147,8 @@ const NeoGrid = (): JSX.Element => {
         rowData={data}
         defaultColDef={defaultColDef}
         columnDefs={columnDefs}
-        rowGroupPanelShow={'always'}
+        enableRangeSelection
+        rowGroupPanelShow="always"
       />
     </div>
   );
