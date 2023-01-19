@@ -1,0 +1,26 @@
+:root {
+  --main-color: rgb(1,238,173);
+  --secondary-color: #192a3a;
+}
+
+.header-container {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.btn {
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  font-weight: 200;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  border-radius: 40px;
+  line-height: 1;
+  padding: 12px 15px;
+}
+
+.btn:hover {
+  background-color: rgba(1,238,173, 0.85);
+}
